@@ -5586,10 +5586,8 @@ MonoBehaviour:
   damageSound: {fileID: 8300000, guid: 625ad9d8d9301ef46aee52785658f76b, type: 3}
   criticalSound: {fileID: 8300000, guid: 084f54741c2271446b963eeaf35adb93, type: 3}
   offlineSound: {fileID: 8300000, guid: 2935354db47ce84479e77c3e6137d26f, type: 3}
-  bulletcollision: 0
   health: {fileID: 2682270462518000192}
   controller: {fileID: 1953601153902651959}
-  multiplier: 1
 --- !u!1 &1953601153902651963
 GameObject:
   m_ObjectHideFlags: 0
@@ -5608,7 +5606,7 @@ GameObject:
   - component: {fileID: 2682270462518000192}
   m_Layer: 9
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5839,11 +5837,11 @@ MonoBehaviour:
   - {fileID: 1953601154037579311}
   - {fileID: 1953601154625838191}
   - {fileID: 1953601155495809964}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8635322822379276507}
+  - {fileID: 1957245258696250437}
+  - {fileID: 5929424214088608212}
+  - {fileID: 448661838323551987}
+  - {fileID: 8358393883155256656}
   - {fileID: 1953601154707528220}
   - {fileID: 1953601154602747755}
   - {fileID: 1953601154707528219}
@@ -5863,6 +5861,7 @@ MonoBehaviour:
   Health:
     m_InternalValue: 0
   MaxHealth: 150
+  TakeDamage: {fileID: 1953601154037579309}
 --- !u!1 &1953601153936762532
 GameObject:
   m_ObjectHideFlags: 0
@@ -6303,10 +6302,8 @@ MonoBehaviour:
   damageSound: {fileID: 8300000, guid: 625ad9d8d9301ef46aee52785658f76b, type: 3}
   criticalSound: {fileID: 8300000, guid: 084f54741c2271446b963eeaf35adb93, type: 3}
   offlineSound: {fileID: 8300000, guid: 2935354db47ce84479e77c3e6137d26f, type: 3}
-  bulletcollision: 0
   health: {fileID: 2682270462518000192}
   controller: {fileID: 1953601153902651959}
-  multiplier: 1
 --- !u!82 &1953601154037579306
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6755,10 +6752,8 @@ MonoBehaviour:
   damageSound: {fileID: 8300000, guid: 71d24cdbd5b22f249a37386f8b0f4d83, type: 3}
   criticalSound: {fileID: 8300000, guid: 084f54741c2271446b963eeaf35adb93, type: 3}
   offlineSound: {fileID: 8300000, guid: 2935354db47ce84479e77c3e6137d26f, type: 3}
-  bulletcollision: 0
   health: {fileID: 2682270462518000192}
   controller: {fileID: 1953601153902651959}
-  multiplier: 0
 --- !u!1 &1953601154077787707
 GameObject:
   m_ObjectHideFlags: 0
@@ -6774,7 +6769,7 @@ GameObject:
   - component: {fileID: 1953601154077787705}
   m_Layer: 9
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6875,10 +6870,8 @@ MonoBehaviour:
   damageSound: {fileID: 8300000, guid: 71d24cdbd5b22f249a37386f8b0f4d83, type: 3}
   criticalSound: {fileID: 8300000, guid: 084f54741c2271446b963eeaf35adb93, type: 3}
   offlineSound: {fileID: 8300000, guid: 2935354db47ce84479e77c3e6137d26f, type: 3}
-  bulletcollision: 1
   health: {fileID: 2682270462518000192}
   controller: {fileID: 1953601153902651959}
-  multiplier: 0
 --- !u!1 &1953601154169311102
 GameObject:
   m_ObjectHideFlags: 0
@@ -6894,7 +6887,7 @@ GameObject:
   - component: {fileID: 1953601154169311100}
   m_Layer: 9
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6993,10 +6986,8 @@ MonoBehaviour:
   damageSound: {fileID: 8300000, guid: 71d24cdbd5b22f249a37386f8b0f4d83, type: 3}
   criticalSound: {fileID: 8300000, guid: 084f54741c2271446b963eeaf35adb93, type: 3}
   offlineSound: {fileID: 8300000, guid: 2935354db47ce84479e77c3e6137d26f, type: 3}
-  bulletcollision: 1
   health: {fileID: 2682270462518000192}
   controller: {fileID: 1953601153902651959}
-  multiplier: 0
 --- !u!1 &1953601154190330502
 GameObject:
   m_ObjectHideFlags: 0
@@ -7383,7 +7374,7 @@ GameObject:
   - component: {fileID: 1953601154331085676}
   m_Layer: 9
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7482,10 +7473,8 @@ MonoBehaviour:
   damageSound: {fileID: 8300000, guid: 71d24cdbd5b22f249a37386f8b0f4d83, type: 3}
   criticalSound: {fileID: 8300000, guid: 084f54741c2271446b963eeaf35adb93, type: 3}
   offlineSound: {fileID: 8300000, guid: 2935354db47ce84479e77c3e6137d26f, type: 3}
-  bulletcollision: 1
   health: {fileID: 2682270462518000192}
   controller: {fileID: 1953601153902651959}
-  multiplier: 0
 --- !u!1 &1953601154343870877
 GameObject:
   m_ObjectHideFlags: 0
@@ -12758,10 +12747,8 @@ MonoBehaviour:
   damageSound: {fileID: 8300000, guid: 625ad9d8d9301ef46aee52785658f76b, type: 3}
   criticalSound: {fileID: 8300000, guid: 084f54741c2271446b963eeaf35adb93, type: 3}
   offlineSound: {fileID: 8300000, guid: 2935354db47ce84479e77c3e6137d26f, type: 3}
-  bulletcollision: 0
   health: {fileID: 2682270462518000192}
   controller: {fileID: 1953601153902651959}
-  multiplier: 1
 --- !u!1 &1953601154602747757
 GameObject:
   m_ObjectHideFlags: 0
@@ -12940,6 +12927,7 @@ GameObject:
   - component: {fileID: 1953601154625838189}
   - component: {fileID: 1953601154625838190}
   - component: {fileID: 1953601154625838191}
+  - component: {fileID: 6722343385671106003}
   m_Layer: 9
   m_Name: Weapon Switcher
   m_TagString: Untagged
@@ -13010,6 +12998,32 @@ MonoBehaviour:
   secondaryOverlay: {fileID: 1953601155380123182}
   stimOverlay: {fileID: 1953601154209572508}
   primarys: {fileID: 1953601154491450311}
+--- !u!114 &6722343385671106003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953601154625838480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2868252ab5c4d1da357e8f11f1b524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 1
+  SyncScaleY: 1
+  SyncScaleZ: 1
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  InLocalSpace: 0
+  Interpolate: 1
 --- !u!1 &1953601154628535150
 GameObject:
   m_ObjectHideFlags: 0
@@ -18195,7 +18209,7 @@ GameObject:
   - component: {fileID: 1953601154806839453}
   m_Layer: 9
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18294,10 +18308,8 @@ MonoBehaviour:
   damageSound: {fileID: 8300000, guid: 71d24cdbd5b22f249a37386f8b0f4d83, type: 3}
   criticalSound: {fileID: 8300000, guid: 084f54741c2271446b963eeaf35adb93, type: 3}
   offlineSound: {fileID: 8300000, guid: 2935354db47ce84479e77c3e6137d26f, type: 3}
-  bulletcollision: 1
   health: {fileID: 0}
   controller: {fileID: 1953601153902651959}
-  multiplier: 0
 --- !u!1 &1953601154875639135
 GameObject:
   m_ObjectHideFlags: 0
@@ -18658,10 +18670,8 @@ MonoBehaviour:
   damageSound: {fileID: 8300000, guid: 71d24cdbd5b22f249a37386f8b0f4d83, type: 3}
   criticalSound: {fileID: 8300000, guid: 084f54741c2271446b963eeaf35adb93, type: 3}
   offlineSound: {fileID: 8300000, guid: 2935354db47ce84479e77c3e6137d26f, type: 3}
-  bulletcollision: 1
   health: {fileID: 2682270462518000192}
   controller: {fileID: 1953601153902651959}
-  multiplier: 1
 --- !u!136 &1953601154937594811
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -19005,7 +19015,7 @@ GameObject:
   - component: {fileID: 1953601155062489263}
   m_Layer: 9
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19104,10 +19114,8 @@ MonoBehaviour:
   damageSound: {fileID: 8300000, guid: 71d24cdbd5b22f249a37386f8b0f4d83, type: 3}
   criticalSound: {fileID: 8300000, guid: 084f54741c2271446b963eeaf35adb93, type: 3}
   offlineSound: {fileID: 8300000, guid: 2935354db47ce84479e77c3e6137d26f, type: 3}
-  bulletcollision: 1
   health: {fileID: 2682270462518000192}
   controller: {fileID: 1953601153902651959}
-  multiplier: 0
 --- !u!1 &1953601155249738152
 GameObject:
   m_ObjectHideFlags: 0
@@ -24054,7 +24062,7 @@ GameObject:
   - component: {fileID: 1953601155417477559}
   m_Layer: 9
   m_Name: Sphere (1)
-  m_TagString: Untagged
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24153,10 +24161,8 @@ MonoBehaviour:
   damageSound: {fileID: 8300000, guid: 71d24cdbd5b22f249a37386f8b0f4d83, type: 3}
   criticalSound: {fileID: 8300000, guid: 084f54741c2271446b963eeaf35adb93, type: 3}
   offlineSound: {fileID: 8300000, guid: 2935354db47ce84479e77c3e6137d26f, type: 3}
-  bulletcollision: 1
   health: {fileID: 2682270462518000192}
   controller: {fileID: 1953601153902651959}
-  multiplier: 0
 --- !u!1 &1953601155510456969
 GameObject:
   m_ObjectHideFlags: 0
@@ -24379,6 +24385,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5331193189724472337}
   - component: {fileID: 8358393883155256656}
+  - component: {fileID: 8787826400220935202}
   m_Layer: 9
   m_Name: StimScript
   m_TagString: Untagged
@@ -24425,6 +24432,32 @@ MonoBehaviour:
   UseSound: {fileID: 8300000, guid: ec6f956a76140fc41a6cddf0a662b119, type: 3}
   currentMag: {fileID: 1953601154063288409}
   ammoLeft: {fileID: 1953601154190330502}
+--- !u!114 &8787826400220935202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3992063488034701968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2868252ab5c4d1da357e8f11f1b524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 1
+  SyncScaleY: 1
+  SyncScaleZ: 1
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  InLocalSpace: 0
+  Interpolate: 1
 --- !u!1 &4079502778656245525
 GameObject:
   m_ObjectHideFlags: 0
@@ -24469,6 +24502,7 @@ GameObject:
   - component: {fileID: 7591321518666008146}
   - component: {fileID: 448661838323551987}
   - component: {fileID: 5929424214088608212}
+  - component: {fileID: 4572014894541813916}
   m_Layer: 9
   m_Name: OPScript
   m_TagString: Untagged
@@ -24600,7 +24634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce755ed380370d45b77db46c4cba040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunscript3: {fileID: 0}
+  gunscript3: {fileID: 5929424214088608212}
   camMovement: {fileID: 1953601154037579311}
   animator: {fileID: 1953601154625838190}
   snotgunScope: {fileID: 1953601154349942945}
@@ -24642,12 +24676,12 @@ MonoBehaviour:
   mainCamera: {fileID: 1953601154707528220}
   muzzleFlash: {fileID: 1953601153761203631}
   objHit: {fileID: 1743637094903878, guid: 021a2f7a2c5bc4449b4c64a66a050e8c, type: 3}
-  AR: {fileID: 0}
-  SMG: {fileID: 0}
-  Snotgun: {fileID: 0}
+  AR: {fileID: 1953601154999600900}
+  SMG: {fileID: 1953601155095942634}
+  Snotgun: {fileID: 1953601154875639135}
   ARScript: {fileID: 6318960394033627931}
-  SMGScript: {fileID: 6318960394033627931}
-  SnotgunScript: {fileID: 6318960394033627931}
+  SMGScript: {fileID: 4714924074584165118}
+  SnotgunScript: {fileID: 4389197692876737561}
   DotCH: {fileID: 2819248457590151120, guid: 469e4746a2a4fe34691510308b322553, type: 3}
   CrossCH: {fileID: 6350926299027214068, guid: cfd074608a46a8f40a857ad2954293d8, type: 3}
   PlusCH: {fileID: 8775511239929934294, guid: 31f5e1ad72017a94081e21f456d344d4, type: 3}
@@ -24672,6 +24706,32 @@ MonoBehaviour:
   equipSound: {fileID: 8300000, guid: af8992d7f58e67040b43eda7192f57fa, type: 3}
   reloadSound: {fileID: 8300000, guid: 01edfb5cf5226fc499fc01bec648cee1, type: 3}
   shotVolume: 0.7
+--- !u!114 &4572014894541813916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4389197692876737561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2868252ab5c4d1da357e8f11f1b524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 1
+  SyncScaleY: 1
+  SyncScaleZ: 1
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  InLocalSpace: 0
+  Interpolate: 1
 --- !u!1 &4714924074584165118
 GameObject:
   m_ObjectHideFlags: 0
@@ -24683,6 +24743,7 @@ GameObject:
   - component: {fileID: 6115898549610328516}
   - component: {fileID: 1778891150555818908}
   - component: {fileID: 1957245258696250437}
+  - component: {fileID: 9148056271895492676}
   m_Layer: 9
   m_Name: SMGScript
   m_TagString: Untagged
@@ -24833,12 +24894,12 @@ MonoBehaviour:
   mainCamera: {fileID: 1953601154707528220}
   muzzleFlash: {fileID: 1953601154730981944}
   objHit: {fileID: 1743637094903878, guid: 021a2f7a2c5bc4449b4c64a66a050e8c, type: 3}
-  AR: {fileID: 0}
-  SMG: {fileID: 0}
-  Snotgun: {fileID: 0}
+  AR: {fileID: 1953601154999600900}
+  SMG: {fileID: 1953601155095942634}
+  Snotgun: {fileID: 5385591323908927283, guid: 0868f4349cd9b0548a566032f9a57e69, type: 3}
   ARScript: {fileID: 6318960394033627931}
-  SMGScript: {fileID: 6318960394033627931}
-  SnotgunScript: {fileID: 6318960394033627931}
+  SMGScript: {fileID: 4714924074584165118}
+  SnotgunScript: {fileID: 4389197692876737561}
   DotCH: {fileID: 2819248457590151120, guid: 469e4746a2a4fe34691510308b322553, type: 3}
   CrossCH: {fileID: 6350926299027214068, guid: cfd074608a46a8f40a857ad2954293d8, type: 3}
   PlusCH: {fileID: 8775511239929934294, guid: 31f5e1ad72017a94081e21f456d344d4, type: 3}
@@ -24863,6 +24924,32 @@ MonoBehaviour:
   equipSound: {fileID: 8300000, guid: e9e8026c50664a643a8333635c5d3521, type: 3}
   reloadSound: {fileID: 8300000, guid: 3a254e17637ad1c49962be0a765fe8d4, type: 3}
   shotVolume: 0.3
+--- !u!114 &9148056271895492676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4714924074584165118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2868252ab5c4d1da357e8f11f1b524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 1
+  SyncScaleY: 1
+  SyncScaleZ: 1
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  InLocalSpace: 0
+  Interpolate: 1
 --- !u!1 &5585358419902789263
 GameObject:
   m_ObjectHideFlags: 0
@@ -24958,6 +25045,7 @@ GameObject:
   - component: {fileID: 3537774655729444579}
   - component: {fileID: 1587947121322248047}
   - component: {fileID: 8635322822379276507}
+  - component: {fileID: 6415042522906081715}
   m_Layer: 9
   m_Name: ARScript
   m_TagString: Untagged
@@ -25108,12 +25196,12 @@ MonoBehaviour:
   mainCamera: {fileID: 1953601154707528220}
   muzzleFlash: {fileID: 1953601155280823552}
   objHit: {fileID: 1743637094903878, guid: 021a2f7a2c5bc4449b4c64a66a050e8c, type: 3}
-  AR: {fileID: 0}
-  SMG: {fileID: 0}
-  Snotgun: {fileID: 0}
+  AR: {fileID: 1953601154999600900}
+  SMG: {fileID: 1953601155095942634}
+  Snotgun: {fileID: 5385591323908927283, guid: 0868f4349cd9b0548a566032f9a57e69, type: 3}
   ARScript: {fileID: 6318960394033627931}
-  SMGScript: {fileID: 6318960394033627931}
-  SnotgunScript: {fileID: 6318960394033627931}
+  SMGScript: {fileID: 4714924074584165118}
+  SnotgunScript: {fileID: 4389197692876737561}
   DotCH: {fileID: 2819248457590151120, guid: 469e4746a2a4fe34691510308b322553, type: 3}
   CrossCH: {fileID: 6350926299027214068, guid: cfd074608a46a8f40a857ad2954293d8, type: 3}
   PlusCH: {fileID: 8775511239929934294, guid: 31f5e1ad72017a94081e21f456d344d4, type: 3}
@@ -25138,6 +25226,32 @@ MonoBehaviour:
   equipSound: {fileID: 8300000, guid: e9e8026c50664a643a8333635c5d3521, type: 3}
   reloadSound: {fileID: 8300000, guid: 5e04904ec40ee264f96bab770ca7a479, type: 3}
   shotVolume: 1
+--- !u!114 &6415042522906081715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6318960394033627931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2868252ab5c4d1da357e8f11f1b524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 1
+  SyncScaleY: 1
+  SyncScaleZ: 1
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  InLocalSpace: 0
+  Interpolate: 1
 --- !u!1 &7648777663265722630
 GameObject:
   m_ObjectHideFlags: 0

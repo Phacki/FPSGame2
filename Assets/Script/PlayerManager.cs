@@ -8,7 +8,7 @@ public class PlayerManager : NetworkBehaviour
     public NetworkVariable<float> Health = new NetworkVariable<float>();
     public float MaxHealth = 150f;
 
-    takeDamage TakeDamage;
+    [SerializeField] private takeDamage TakeDamage;
 
     private void Awake()
     {

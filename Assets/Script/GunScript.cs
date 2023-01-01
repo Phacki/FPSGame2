@@ -20,7 +20,9 @@ public class GunScript : NetworkBehaviour
 
     public PlayerMovement player;
 
-    private const string PlayerTag = "Player";
+    private const string BodyTag = "Body";
+    private const string HeadTag = "Head";
+
     public float walkPaceSet = 10f;
     public float dropForceSet = -20f;
     public float thrustPowerSet = 3f;
@@ -96,7 +98,7 @@ public class GunScript : NetworkBehaviour
                 {
                     animator.SetInteger("fire", 2);
                     FireInterval = Time.time + 1f / fireRate;
-                    ShootClientRpc();
+                    Shoot();
                 }
             }
             if (Automatic == false)
@@ -105,7 +107,7 @@ public class GunScript : NetworkBehaviour
                 {
                     animator.SetInteger("fire", 2);
                     FireInterval = Time.time + 1f / fireRate;
-                    ShootClientRpc();
+                    Shoot();
                 }
             }
             if (Input.GetKeyDown(KeyCode.R))
@@ -148,10 +150,8 @@ public class GunScript : NetworkBehaviour
 
         isReloading = false;
     }
-
-        [ClientRpc]
-        void ShootClientRpc() 
-    {
+        void Shoot() 
+        {
         audioSource.PlayOneShot(shootSound, shotVolume);
         muzzleFlash.Play();
         magCounter--;
@@ -160,8 +160,13 @@ public class GunScript : NetworkBehaviour
         {
             if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit, (Mathf.Infinity), ~fmjMask))
             {
-                if(hit.collider.tag == PlayerTag)
+                if(hit.collider.tag == BodyTag)
                 {
+                    PlayerHitServerRpc(hit.collider.name, damage);
+                }
+                else if(hit.collider.tag == HeadTag)
+                {
+                    damage = damage * 2f;
                     PlayerHitServerRpc(hit.collider.name, damage);
                 }
 
@@ -187,10 +192,14 @@ public class GunScript : NetworkBehaviour
         {
             if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit, (Mathf.Infinity), ~normalMask))
             {
-                takeDamage target = hit.transform.GetComponent<takeDamage>();
-                if (target != null)
+                if (hit.collider.tag == BodyTag)
                 {
-                    target.TakeDamage(damage);
+                    PlayerHitServerRpc(hit.collider.name, damage);
+                }
+                else if (hit.collider.tag == HeadTag)
+                {
+                    damage = damage * 2f;
+                    PlayerHitServerRpc(hit.collider.name, damage);
                 }
 
                 //bullet contact on animation
@@ -211,7 +220,7 @@ public class GunScript : NetworkBehaviour
 
 
     }
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
     void PlayerHitServerRpc(string userID, float damage)
     {
 
