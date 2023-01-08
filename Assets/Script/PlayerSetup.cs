@@ -1,5 +1,6 @@
 using UnityEngine;
 using Unity.Netcode;
+using Unity.Services.Lobbies.Models;
 
 [RequireComponent(typeof(PlayerManager))]
 public class PlayerSetup : NetworkBehaviour
@@ -9,9 +10,11 @@ public class PlayerSetup : NetworkBehaviour
 
     [SerializeField]
     Behaviour[] partsToDisable;
-
+    public GameObject player;
     [SerializeField]
     string remoteLayerName = "RemotePlayer";
+    [SerializeField]
+    GameScripts gameScripts;
 
     private void Start()
     {
@@ -23,7 +26,7 @@ public class PlayerSetup : NetworkBehaviour
         }
         else
         {
-            GetComponent<PlayerManager>().SetUp();
+            GetComponent<PlayerManager>().SetUpServerRpc();
         }
     }
 
@@ -31,9 +34,10 @@ public class PlayerSetup : NetworkBehaviour
     {
         base.OnNetworkSpawn();
 
-        string netID = GetComponent<NetworkObject>().NetworkObjectId.ToString();
+        string netID = GetComponent<NetworkObject>().OwnerClientId.ToString();
         PlayerManager user = GetComponent<PlayerManager>();
         GameManager.CreateUniqueUser(netID, user);
+        gameScripts.allPlayers.Add(player);
     }
 
     void DisableParts()

@@ -66,9 +66,11 @@
     <Compile Include="Assets\Script\GameManager.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Scripts\WFX_BulletHoleDecal.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_RandomDir.cs" />
+    <Compile Include="Assets\Script\LobbyPrototype.cs" />
     <Compile Include="Assets\Script\WeaponSwitch.cs" />
     <Compile Include="Assets\Script\takeDamage.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_Wall.cs" />
+    <Compile Include="Assets\Script\RoundScript.cs" />
     <Compile Include="Assets\Script\NetworkCommandLine.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Scripts\CFX_AutoDestructShuriken.cs" />
     <Compile Include="Assets\Script\CamMovement.cs" />
@@ -80,6 +82,7 @@
     <Compile Include="Assets\Script\PlayerManager.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Scripts\WFX_LightFlicker.cs" />
     <Compile Include="Assets\Script\GameScripts.cs" />
+    <Compile Include="Assets\Script\UserScript.cs" />
     <Compile Include="Assets\Script\Scope.cs" />
     <Compile Include="Assets\Script\PlayerMovement.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_Translate.cs" />
@@ -913,6 +916,10 @@
     <ProjectReference Include="Unity.Tutorials.Core.csproj">
       <Project>{683C1F40-177C-3D3E-8368-007228C656EA}</Project>
       <Name>Unity.Tutorials.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Services.Lobbies.csproj">
+      <Project>{517EA325-530C-E502-9422-344301CB485E}</Project>
+      <Name>Unity.Services.Lobbies</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.Flow.Editor.csproj">
       <Project>{777A9C12-1898-19B2-D5AC-41E70516D94E}</Project>

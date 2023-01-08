@@ -17,7 +17,8 @@ public class takeDamage : NetworkBehaviour
     public PlayerManager health;
     public PlayerManager controller;
     //public float multiplier = 1f;
-    public void TakeDamage(float amount)
+    [ServerRpc(RequireOwnership = false)]
+    public void TakeDamageServerRpc(float amount)
     {
         audioSource.PlayOneShot(damageSound, 0.2f);
         //if (bulletcollision == collisionType.head)
@@ -40,7 +41,7 @@ public class takeDamage : NetworkBehaviour
         if (health.Health.Value <= 0f)
         {
         audioSource.PlayOneShot(offlineSound);
-        controller.Die();
+        controller.DieClientRpc();
         }
     }
 }

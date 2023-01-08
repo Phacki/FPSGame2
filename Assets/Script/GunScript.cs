@@ -30,6 +30,8 @@ public class GunScript : NetworkBehaviour
     public TextMeshProUGUI currentMag;
     public TextMeshProUGUI ammoLeft;
 
+    [SerializeField]
+    PlayerManager playerManager;
     public Camera mainCamera;
     public ParticleSystem muzzleFlash;
     public GameObject objHit;
@@ -51,6 +53,8 @@ public class GunScript : NetworkBehaviour
     public GameObject ARCharacter;
     public GameObject SMGCharacter;
     public GameObject SnotGunCharacter;
+    public GameObject TeaBlock;
+    public GameObject SeaTeaBlock;
 
     public LayerMask fmjMask;
     public LayerMask normalMask;
@@ -151,72 +155,74 @@ public class GunScript : NetworkBehaviour
 
         isReloading = false;
     }
-        void Shoot() 
+    void Shoot()
+    {
+        audioSource.PlayOneShot(shootSound, shotVolume);
+        muzzleFlash.Play();
+        magCounter--;
+        RaycastHit hit;
+        if (FMJ == true)
         {
-            audioSource.PlayOneShot(shootSound, shotVolume);
-            muzzleFlash.Play();
-            magCounter--;
-            RaycastHit hit;
-            if (FMJ == true)
+            if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit, (Mathf.Infinity), ~fmjMask))
             {
-                if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit, (Mathf.Infinity), ~fmjMask))
+                if (hit.collider.tag == BodyTag)
                 {
-                    if(hit.collider.tag == BodyTag)
-                    {
-                        PlayerHitServerRpc(hit.collider.name, damage);
-                    }
-                    else if(hit.collider.tag == HeadTag)
-                    {
-                        damage = damage * 2f;
-                        PlayerHitServerRpc(hit.collider.name, damage);
-                    }
-
-                    //takeDamage target = hit.transform.GetComponent<takeDamage>();
-                    //if (target != null)
-                    //{
-                    //    target.TakeDamage(damage);
-                    //}
-                    //bullet contact on animation
-                    GameObject hitobj = Instantiate(objHit, hit.point, Quaternion.LookRotation(hit.normal));
-                    Destroy(hitobj, 2f);
-
-
-                    EquipAR(hit.transform.name);
-                    EquipSMG(hit.transform.name);
-                    EquipSnotgun(hit.transform.name);
-                    EquipDotCH(hit.transform.name);
-                    EquipCrossCH(hit.transform.name);
-                    EquipPlusCH(hit.transform.name);
+                    PlayerHitServerRpc(hit.collider.name, damage);
                 }
-            }
-            else if (FMJ == false)
-            {
-                if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit, (Mathf.Infinity), ~normalMask))
+                else if (hit.collider.tag == HeadTag)
                 {
-                    if (hit.collider.tag == BodyTag)
-                    {
-                        PlayerHitServerRpc(hit.collider.name, damage);
-                    }
-                    else if (hit.collider.tag == HeadTag)
-                    {
-                        damage = damage * 2f;
-                        PlayerHitServerRpc(hit.collider.name, damage);
-                    }
-
-                    //bullet contact on animation
-                    GameObject hitobj = Instantiate(objHit, hit.point, Quaternion.LookRotation(hit.normal));
-                    Destroy(hitobj, 2f);
-
-
-                    EquipAR(hit.transform.name);
-                    EquipSMG(hit.transform.name);
-                    EquipSnotgun(hit.transform.name);
-                    EquipDotCH(hit.transform.name);
-                    EquipCrossCH(hit.transform.name);
-                    EquipPlusCH(hit.transform.name);
+                    damage = damage * 2f;
+                    PlayerHitServerRpc(hit.collider.name, damage);
                 }
+
+                //takeDamage target = hit.transform.GetComponent<takeDamage>();
+                //if (target != null)
+                //{
+                //    target.TakeDamage(damage);
+                //}
+                //bullet contact on animation
+                GameObject hitobj = Instantiate(objHit, hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(hitobj, 2f);
+
+
+                EquipAR(hit.transform.name);
+                EquipSMG(hit.transform.name);
+                EquipSnotgun(hit.transform.name);
+                EquipDotCH(hit.transform.name);
+                EquipCrossCH(hit.transform.name);
+                EquipPlusCH(hit.transform.name);
             }
         }
+        else if (FMJ == false)
+        {
+            if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit, (Mathf.Infinity), ~normalMask))
+            {
+                if (hit.collider.tag == BodyTag)
+                {
+                    PlayerHitServerRpc(hit.collider.name, damage);
+                }
+                else if (hit.collider.tag == HeadTag)
+                {
+                    damage = damage * 2f;
+                    PlayerHitServerRpc(hit.collider.name, damage);
+                }
+
+                //bullet contact on animation
+                GameObject hitobj = Instantiate(objHit, hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(hitobj, 2f);
+
+                SelectTeaServerRpc(hit.transform.name);
+                SelectSeaTeaServerRpc(hit.transform.name);
+
+                EquipAR(hit.transform.name);
+                EquipSMG(hit.transform.name);
+                EquipSnotgun(hit.transform.name);
+                EquipDotCH(hit.transform.name);
+                EquipCrossCH(hit.transform.name);
+                EquipPlusCH(hit.transform.name);
+            }
+        }
+    }
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player" && other.GetComponent<PlayerManager>().Health.Value <= 0f)
@@ -233,7 +239,34 @@ public class GunScript : NetworkBehaviour
         PlayerManager user = GameManager.GetUser(userID);
         user.RegisterDamageClientRpc(damage);
     }
-    public void EquipAR(string name)
+
+    [ServerRpc]
+    private void SelectTeaServerRpc(string name)
+    {
+        if (name == TeaBlock.name)
+        {
+            playerManager.playerTeam.Value = 0;
+            playerManager.SpawnPoint(0);
+            GoSpawnPlayerClientRpc(0);
+        }
+    }
+
+    [ServerRpc]
+    private void SelectSeaTeaServerRpc(string name)
+    {
+        if (name == SeaTeaBlock.name)
+        {
+            playerManager.playerTeam.Value = 1;
+            GoSpawnPlayerClientRpc(1);
+        }
+    }
+
+    [ClientRpc]
+    private void GoSpawnPlayerClientRpc(int team)
+    {
+        playerManager.SpawnPoint(team);
+    }
+    private void EquipAR(string name)
     {
         if (name == AR.name)
         {
@@ -251,7 +284,7 @@ public class GunScript : NetworkBehaviour
         }
     }
 
-    public void EquipSMG(string name)
+    private void EquipSMG(string name)
     {
         if (name == SMG.name)
         {
@@ -269,7 +302,7 @@ public class GunScript : NetworkBehaviour
         }
     }
 
-    public void EquipSnotgun(string name)
+    private void EquipSnotgun(string name)
     {
         if (name == Snotgun.name)
         {
@@ -287,7 +320,7 @@ public class GunScript : NetworkBehaviour
         }
     }
 
-    public void EquipDotCH(string name)
+    private void EquipDotCH(string name)
     {
         if (name == DotCH.name)
         {
@@ -297,7 +330,7 @@ public class GunScript : NetworkBehaviour
         }
     }
 
-    public void EquipCrossCH(string name)
+    private void EquipCrossCH(string name)
     {
         if (name == CrossCH.name)
         {
@@ -307,7 +340,7 @@ public class GunScript : NetworkBehaviour
         }
     }
 
-    public void EquipPlusCH(string name)
+    private void EquipPlusCH(string name)
     {
         if (name == PlusCH.name)
         {

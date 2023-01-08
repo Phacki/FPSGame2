@@ -5825,7 +5825,9 @@ MonoBehaviour:
   - {fileID: 1953601154707528220}
   - {fileID: 1953601154602747755}
   - {fileID: 1953601154707528219}
+  player: {fileID: 1953601153902651963}
   remoteLayerName: RemotePlayer
+  gameScripts: {fileID: 3751173611509131445, guid: bf5e4b54e6d6b0a4fb0ea9c660f49729, type: 3}
 --- !u!114 &2682270462518000192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5845,12 +5847,16 @@ MonoBehaviour:
   stim: {fileID: 3089345545512024303}
   Player: {fileID: 1953601153902651963}
   healthBar: {fileID: 1953601153902651959}
+  HealthFill: {fileID: 1953601154633803030}
+  CurrentHealth: {fileID: 1953601154274225928}
   killCount: 0
   txtTags: {fileID: 1953601153683168722}
   Health:
     m_InternalValue: 0
   MaxHealth: 150
   TakeDamage: {fileID: 1953601154037579309}
+  playerTeam:
+    m_InternalValue: 0
 --- !u!1 &1953601153936762532
 GameObject:
   m_ObjectHideFlags: 0
@@ -24202,6 +24208,7 @@ MonoBehaviour:
   thrustPowerSet: 3
   currentMag: {fileID: 1953601154063288409}
   ammoLeft: {fileID: 1953601154190330500}
+  playerManager: {fileID: 0}
   mainCamera: {fileID: 1953601154707528220}
   muzzleFlash: {fileID: 1953601153761203631}
   objHit: {fileID: 1743637094903878, guid: 021a2f7a2c5bc4449b4c64a66a050e8c, type: 3}
@@ -24223,12 +24230,14 @@ MonoBehaviour:
   ARCharacter: {fileID: 0}
   SMGCharacter: {fileID: 0}
   SnotGunCharacter: {fileID: 0}
+  TeaBlock: {fileID: 0}
+  SeaTeaBlock: {fileID: 0}
   fmjMask:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 2816
   normalMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 2560
   audioSource: {fileID: 1953601154037579306}
   reloadSource: {fileID: 1953601154875639133}
   shootSound: {fileID: 8300000, guid: 592f9b39811cae6469ed83b5068a2de3, type: 3}
@@ -24394,6 +24403,7 @@ MonoBehaviour:
   thrustPowerSet: 6
   currentMag: {fileID: 1953601154063288409}
   ammoLeft: {fileID: 1953601154190330500}
+  playerManager: {fileID: 0}
   mainCamera: {fileID: 1953601154707528220}
   muzzleFlash: {fileID: 1953601154730981944}
   objHit: {fileID: 1743637094903878, guid: 021a2f7a2c5bc4449b4c64a66a050e8c, type: 3}
@@ -24415,12 +24425,14 @@ MonoBehaviour:
   ARCharacter: {fileID: 0}
   SMGCharacter: {fileID: 0}
   SnotGunCharacter: {fileID: 0}
+  TeaBlock: {fileID: 0}
+  SeaTeaBlock: {fileID: 0}
   fmjMask:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 2816
   normalMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 2560
   audioSource: {fileID: 1953601154037579306}
   reloadSource: {fileID: 1953601155095909212}
   shootSound: {fileID: 8300000, guid: d6b774d3de19b4e429b71d7bfdbb1b22, type: 3}
@@ -24436,8 +24448,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5073527636755615076}
-  - component: {fileID: 1606339126247976484}
-  - component: {fileID: 3489874636481836089}
   m_Layer: 9
   m_Name: Brain
   m_TagString: Head
@@ -24461,56 +24471,6 @@ Transform:
   m_Father: {fileID: 1953601155343290524}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1606339126247976484
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5585358419902789263}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &3489874636481836089
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5585358419902789263}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: f4f29467df415964784c9e62060811b3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &6318960394033627931
 GameObject:
   m_ObjectHideFlags: 0
@@ -24670,6 +24630,7 @@ MonoBehaviour:
   thrustPowerSet: 3
   currentMag: {fileID: 1953601154063288409}
   ammoLeft: {fileID: 1953601154190330500}
+  playerManager: {fileID: 0}
   mainCamera: {fileID: 1953601154707528220}
   muzzleFlash: {fileID: 1953601155280823552}
   objHit: {fileID: 1743637094903878, guid: 021a2f7a2c5bc4449b4c64a66a050e8c, type: 3}
@@ -24691,12 +24652,14 @@ MonoBehaviour:
   ARCharacter: {fileID: 0}
   SMGCharacter: {fileID: 0}
   SnotGunCharacter: {fileID: 0}
+  TeaBlock: {fileID: 0}
+  SeaTeaBlock: {fileID: 0}
   fmjMask:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 2816
   normalMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 2560
   audioSource: {fileID: 1953601154037579306}
   reloadSource: {fileID: 1953601154999566752}
   shootSound: {fileID: 8300000, guid: 8a9852ef60ccc5442ad8b107960c5014, type: 3}
@@ -25514,6 +25477,7 @@ MonoBehaviour:
   thrustPowerSet: 3
   currentMag: {fileID: 1953601154063288409}
   ammoLeft: {fileID: 1953601154190330500}
+  playerManager: {fileID: 2682270462518000192}
   mainCamera: {fileID: 1953601154707528220}
   muzzleFlash: {fileID: 1953601154343870874}
   objHit: {fileID: 1743637094903878, guid: 021a2f7a2c5bc4449b4c64a66a050e8c, type: 3}
@@ -25535,12 +25499,14 @@ MonoBehaviour:
   ARCharacter: {fileID: 1953601154554826165}
   SMGCharacter: {fileID: 1953601155568550333}
   SnotGunCharacter: {fileID: 1953601154628535150}
+  TeaBlock: {fileID: 2736972061575176423, guid: 2891228fd76122148b176000448cfca3, type: 3}
+  SeaTeaBlock: {fileID: 8080508894271082407, guid: 514e3cc2db68b6346bda6da5b78a0481, type: 3}
   fmjMask:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 2816
   normalMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 2560
   audioSource: {fileID: 1953601154037579306}
   reloadSource: {fileID: 1953601155495809965}
   shootSound: {fileID: 8300000, guid: a5e31887c73309746b4015c42a0aea9a, type: 3}

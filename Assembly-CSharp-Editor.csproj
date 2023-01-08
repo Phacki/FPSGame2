@@ -897,6 +897,10 @@
       <Project>{683C1F40-177C-3D3E-8368-007228C656EA}</Project>
       <Name>Unity.Tutorials.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.Services.Lobbies.csproj">
+      <Project>{517EA325-530C-E502-9422-344301CB485E}</Project>
+      <Name>Unity.Services.Lobbies</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.Flow.Editor.csproj">
       <Project>{777A9C12-1898-19B2-D5AC-41E70516D94E}</Project>
       <Name>Unity.VisualScripting.Flow.Editor</Name>

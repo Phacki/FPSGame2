@@ -69,7 +69,6 @@ public class PlayerMovement : NetworkBehaviour
         // calls subroutines for gravity and movement of the player as it is input
         Gravity();
         Movement();
-        HealthBar();
     }
 
     private void Movement()
@@ -119,10 +118,4 @@ public class PlayerMovement : NetworkBehaviour
         }
     }
     //                                           Subroutine called when player health is less than or equal to zero, causing players death
-    
-    public void HealthBar()
-    {
-        CurrentHealth.text = health.Health.Value + "";
-        HealthFill.fillAmount = health.Health.Value / health.MaxHealth;
-    }
 }
