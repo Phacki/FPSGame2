@@ -24,10 +24,6 @@ public class PlayerSetup : NetworkBehaviour
             DisableParts();
             IssueRemoteLayer();
         }
-        else
-        {
-            GetComponent<PlayerManager>().SetUpServerRpc();
-        }
     }
 
     public override void OnNetworkSpawn()
@@ -38,6 +34,7 @@ public class PlayerSetup : NetworkBehaviour
         PlayerManager user = GetComponent<PlayerManager>();
         GameManager.CreateUniqueUser(netID, user);
         gameScripts.allPlayers.Add(player);
+        GetComponent<PlayerManager>().SetUpServerRpc();
     }
 
     void DisableParts()

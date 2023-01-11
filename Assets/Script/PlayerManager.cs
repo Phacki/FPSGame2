@@ -31,7 +31,7 @@ public class PlayerManager : NetworkBehaviour
     public NetworkVariable<int> playerTeam = new NetworkVariable<int>();
     Dictionary<GameObject, Vector3> playerSpawnLocations;
 
-    [ServerRpc(RequireOwnership = true)]
+    [ServerRpc(RequireOwnership = false)]
     public void SetUpServerRpc()
     {
         Health.Value = MaxHealth;
@@ -90,7 +90,7 @@ public class PlayerManager : NetworkBehaviour
         SpawnPoint(playerTeam.Value);
         SetUpServerRpc();
     }
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
     public void StartUpServerRpc()
     {
         Debug.Log("ServerRpc Entered");
@@ -103,6 +103,7 @@ public class PlayerManager : NetworkBehaviour
         killCount++;
         txtTags.text = killCount + "";
     }
+
     public void SpawnPoint(int playerTeam)
     {
         // get the current player object
